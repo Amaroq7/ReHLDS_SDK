@@ -1,2 +1,2 @@
-# ReHLDS_SDK
-ReHLDS_SDK
+# ReHLDS SDK
+ReHLDS SDK API Version 3.7
