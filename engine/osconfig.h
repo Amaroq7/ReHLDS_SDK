@@ -136,6 +136,8 @@
 		VirtualFree(ptr, 0, MEM_RELEASE);
 	}
 #else // _WIN32
+	#include <x86intrin.h>
+
 	#ifndef PAGESIZE
 		#define PAGESIZE 4096
 	#endif
@@ -143,9 +145,7 @@
 	#define ARRAYSIZE(p) (sizeof(p)/sizeof(p[0]))
 
 	#define _MAX_FNAME NAME_MAX
-        #if !defined MAX_PATH
-	    #define MAX_PATH 260
-        #endif
+	#define MAX_PATH 260
 
 	typedef void *HWND;
 
