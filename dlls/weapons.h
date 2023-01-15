@@ -171,7 +171,7 @@ public:
 #define AMMO_SNARKBOX_GIVE		5
 
 // bullet types
-typedef	enum
+typedef	enum Bullet
 {
 	BULLET_NONE = 0,
 	BULLET_PLAYER_9MM, // glock
@@ -194,7 +194,7 @@ typedef	enum
 
 #define WEAPON_IS_ONTARGET 0x40
 
-typedef struct
+typedef struct ItemInfo
 {
 	int		iSlot;
 	int		iPosition;
@@ -209,7 +209,7 @@ typedef struct
 	int		iWeight;// this value used to determine this weapon's importance in autoselection.
 } ItemInfo;
 
-typedef struct
+typedef struct AmmoInfo
 {
 	const char *pszName;
 	int iId;
