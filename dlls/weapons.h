@@ -171,7 +171,7 @@ public:
 #define AMMO_SNARKBOX_GIVE		5
 
 // bullet types
-typedef	enum Bullet
+enum Bullet
 {
 	BULLET_NONE = 0,
 	BULLET_PLAYER_9MM, // glock
@@ -183,7 +183,7 @@ typedef	enum Bullet
 	BULLET_MONSTER_9MM,
 	BULLET_MONSTER_MP5,
 	BULLET_MONSTER_12MM,
-} Bullet;
+};
 
 
 #define ITEM_FLAG_SELECTONEMPTY		1
@@ -194,7 +194,7 @@ typedef	enum Bullet
 
 #define WEAPON_IS_ONTARGET 0x40
 
-typedef struct ItemInfo
+struct ItemInfo
 {
 	int		iSlot;
 	int		iPosition;
@@ -207,13 +207,13 @@ typedef struct ItemInfo
 	int		iId;
 	int		iFlags;
 	int		iWeight;// this value used to determine this weapon's importance in autoselection.
-} ItemInfo;
+};
 
-typedef struct AmmoInfo
+struct AmmoInfo
 {
 	const char *pszName;
 	int iId;
-} AmmoInfo;
+};
 
 // Items that the player has in their inventory that they can use
 class CBasePlayerItem : public CBaseAnimating
