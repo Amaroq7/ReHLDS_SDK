@@ -38,9 +38,9 @@ enum AUTH_IDTYPE
 	AUTH_IDTYPE_LOCAL	= 3
 };
 
-typedef struct USERID_s
+struct USERID_t
 {
 	int idtype;
 	uint64 m_SteamID;
 	unsigned int clientip;
-} USERID_t;
+};

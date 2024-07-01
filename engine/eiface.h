@@ -249,7 +249,7 @@ struct enginefuncs_t
 	void		(*pfnSetGroupMask)			( int mask, int op );
 
 	int			(*pfnCreateInstancedBaseline) ( int classname, struct entity_state_s *baseline );
-	void		(*pfnCvar_DirectSet)		( struct cvar_s *var, const char *value );
+	void		(*pfnCvar_DirectSet)		( struct cvar_t *var, const char *value );
 
 	// Forces the client and server to be running with the same version of the specified file
 	//  ( e.g., a player model ).
@@ -313,7 +313,6 @@ struct KeyValueData
 	char		*szValue;		// in: value of key
 	qboolean	fHandled;		// out: DLL sets to true if key-value pair was understood
 };
-
 
 struct LEVELLIST
 {
@@ -472,12 +471,12 @@ struct DLL_FUNCTIONS
 	void			(*pfnPM_Move) ( struct playermove_s *ppmove, qboolean server );
 	void			(*pfnPM_Init) ( struct playermove_s *ppmove );
 	char			(*pfnPM_FindTextureType)( char *name );
-	void			(*pfnSetupVisibility)( struct edict_s *pViewEntity, struct edict_s *pClient, unsigned char **pvs, unsigned char **pas );
-	void			(*pfnUpdateClientData) ( const struct edict_s *ent, int sendweapons, struct clientdata_s *cd );
+	void			(*pfnSetupVisibility)( struct edict_t *pViewEntity, struct edict_t *pClient, unsigned char **pvs, unsigned char **pas );
+	void			(*pfnUpdateClientData) ( const struct edict_t *ent, int sendweapons, struct clientdata_s *cd );
 	int				(*pfnAddToFullPack)( struct entity_state_s *state, int e, edict_t *ent, edict_t *host, int hostflags, int player, unsigned char *pSet );
-	void			(*pfnCreateBaseline) ( int player, int eindex, struct entity_state_s *baseline, struct edict_s *entity, int playermodelindex, vec3_t player_mins, vec3_t player_maxs );
+	void			(*pfnCreateBaseline) ( int player, int eindex, struct entity_state_s *baseline, struct edict_t *entity, int playermodelindex, vec3_t player_mins, vec3_t player_maxs );
 	void			(*pfnRegisterEncoders)	( void );
-	int				(*pfnGetWeaponData)		( struct edict_s *player, struct weapon_data_s *info );
+	int				(*pfnGetWeaponData)		( struct edict_t *player, struct weapon_data_s *info );
 
 	void			(*pfnCmdStart)			( const edict_t *player, const struct usercmd_s *cmd, unsigned int random_seed );
 	void			(*pfnCmdEnd)			( const edict_t *player );
@@ -494,7 +493,7 @@ struct DLL_FUNCTIONS
 
 	// One of the pfnForceUnmodified files failed the consistency check for the specified player
 	// Return 0 to allow the client to continue, 1 to force immediate disconnection ( with an optional disconnect message of up to 256 characters )
-	int				(*pfnInconsistentFile)( const struct edict_s *player, const char *filename, char *disconnect_message );
+	int				(*pfnInconsistentFile)( const struct edict_t *player, const char *filename, char *disconnect_message );
 
 	// The game .dll should return 1 if lag compensation should be allowed ( could also just set
 	//  the sv_unlag cvar.

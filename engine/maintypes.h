@@ -61,10 +61,18 @@
 typedef unsigned int string_t;
 
 // From engine/server.h
-typedef enum sv_delta_s
+enum sv_delta_t
 {
 	sv_packet_nodelta,
 	sv_packet_delta,
-} sv_delta_t;
+};
+
+// From engine/server.h
+enum server_state_t
+{
+	ss_dead = 0,
+	ss_loading = 1,
+	ss_active = 2,
+};
 
 #endif // MAINTYPES_H

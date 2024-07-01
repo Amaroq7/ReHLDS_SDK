@@ -20,7 +20,7 @@
 
 #define EVENT_API_VERSION 1
 
-typedef struct event_api_s
+struct event_api_t
 {
 	int		version;
 	void	( *EV_PlaySound ) ( int ent, float *origin, int channel, const char *sample, float volume, float attenuation, int fFlags, int pitch );
@@ -44,7 +44,7 @@ typedef struct event_api_s
 	const char *( *EV_TraceTexture ) ( int ground, float *vstart, float *vend );
 	void	( *EV_StopAllSounds ) ( int entnum, int entchannel );
 	void    ( *EV_KillEvents ) ( int entnum, const char *eventname );
-} event_api_t;
+};
 
 extern event_api_t eventapi;
 

@@ -33,18 +33,18 @@
 
 const int MAX_EXTENSION_DLL = 50;
 
-typedef struct functiontable_s
+struct functiontable_t
 {
 	uint32 pFunction;
 	char *pFunctionName;
-} functiontable_t;
+};
 
-typedef struct extensiondll_s
+struct extensiondll_t
 {
 	void *lDLLHandle;
 	functiontable_t *functionTable;
 	int functionCount;
-} extensiondll_t;
+};
 
 typedef void(*ENTITYINIT)(struct entvars_s *);
 typedef void(*DISPATCHFUNCTION)(struct entvars_s *, void *);

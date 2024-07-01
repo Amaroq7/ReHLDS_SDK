@@ -27,14 +27,14 @@
 #define FCVAR_UNLOGGED			(1<<8)  // If this is a FCVAR_SERVER, don't log changes to the log file / console if we are creating a log
 #define FCVAR_NOEXTRAWHITEPACE	(1<<9)  // strip trailing/leading white space from this cvar
 
-typedef struct cvar_s
+struct cvar_t
 {
 	const char *name;
 	char	*string;
 	int		flags;
 	float	value;
 	struct cvar_s *next;
-} cvar_t;
+};
 
 using cvar_callback_t = void (*)(const char *pszNewValue);
 
@@ -46,5 +46,17 @@ struct cvar_listener_t
 	cvar_callback_t func;
 	const char      *name;
 };
+
+typedef void (*pfnCvar_HookVariable_t) (cvar_t *pCvar);
+
+struct cvarhook_t
+{
+	pfnCvar_HookVariable_t hook;
+
+	cvar_t *cvar;
+	cvarhook_t *next;
+};
+
+qboolean Cvar_HookVariable(const char *var_name, cvarhook_t *pHook);
 
 #endif // CVARDEF_H

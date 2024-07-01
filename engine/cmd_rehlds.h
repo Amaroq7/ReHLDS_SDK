@@ -30,19 +30,19 @@
 #include "archtypes.h"
 
 typedef void(*xcommand_t)(void);
-typedef struct cmd_function_s
+struct cmd_function_t
 {
 	struct cmd_function_s *next;
 	const char *name;
 	xcommand_t function;
 	int flags;
-} cmd_function_t;
+};
 
-typedef enum cmd_source_s
+enum cmd_source_t
 {
 	src_client = 0,		// came in over a net connection as a clc_stringcmd. host_client will be valid during this state.
 	src_command = 1,	// from the command buffer.
-} cmd_source_t;
+};
 
 #define FCMD_HUD_COMMAND		BIT(0)
 #define FCMD_GAME_COMMAND		BIT(1)

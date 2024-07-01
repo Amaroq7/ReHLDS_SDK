@@ -18,7 +18,7 @@
 #pragma once
 #endif
 
-typedef struct globalvars_s
+struct globalvars_t
 {	
 	float		time;
 	float		frametime;
@@ -52,10 +52,9 @@ typedef struct globalvars_s
 
 	void		*pSaveData;
 	vec3_t		vecLandmarkOffset;
-} globalvars_t;
+};
 
-
-typedef struct entvars_s
+struct entvars_t
 {
 	string_t	classname;
 	string_t	globalname;
@@ -218,7 +217,7 @@ typedef struct entvars_s
 	edict_t		*euser2;
 	edict_t		*euser3;
 	edict_t		*euser4;
-} entvars_t;
+};
 
 
 #endif // PROGDEFS_H

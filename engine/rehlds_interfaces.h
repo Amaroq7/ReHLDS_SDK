@@ -36,13 +36,10 @@ class IGameClient;
 
 #include "common_rehlds.h"
 #include "userid_rehlds.h"
-
-#include "../public/FileSystem.h"
+#include "FileSystem.h"
 
 #ifdef REHLDS_SELF
 #include "server.h"
-#else
-#include "server_state.h"
 #endif
 
 class INetChan;

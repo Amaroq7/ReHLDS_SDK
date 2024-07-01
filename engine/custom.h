@@ -24,7 +24,7 @@
 // Customization
 // passed to pfnPlayerCustomization
 // For automatic downloading.
-typedef enum
+enum resourcetype_t
 {
 	t_sound = 0,
 	t_skin,
@@ -36,7 +36,7 @@ typedef enum
 	rt_unk,
 
 	rt_max
-} resourcetype_t;
+};
 
 
 typedef struct
@@ -44,10 +44,10 @@ typedef struct
 	int				size;
 } _resourceinfo_t;
 
-typedef struct resourceinfo_s
+struct resourceinfo_t
 {
 	_resourceinfo_t info[ rt_max ];
-} resourceinfo_t;
+};
 
 #define RES_FATALIFMISSING (1<<0)   // Disconnect if we can't get this file.
 #define RES_WASMISSING     (1<<1)   // Do we have the file locally, did we get it ok?
@@ -61,7 +61,7 @@ typedef struct resourceinfo_s
 
 #include "crc.h"
 
-typedef struct resource_s
+struct resource_t
 {
 	char              szFileName[MAX_QPATH]; // File name to download/precache.
 
@@ -82,9 +82,9 @@ typedef struct resource_s
 #else
 	unsigned char *data;
 #endif // !defined(HLTV)
-} resource_t;
+};
 
-typedef struct customization_s
+struct customization_t
 {
 	qboolean bInUse;     // Is this customization in use;
 	resource_t resource; // The resource_t for this customization
@@ -95,7 +95,7 @@ typedef struct customization_s
 	void *pInfo;          // Buffer that holds the data structure that references the data (e.g., the cachewad_t)
 	void *pBuffer;       // Buffer that holds the data for the customization (the raw .wad data)
 	struct customization_s *pNext; // Next in chain
-} customization_t;
+};
 
 #define FCUST_FROMHPAK		( 1<<0 )
 #define FCUST_WIPEDATA		( 1<<1 )
