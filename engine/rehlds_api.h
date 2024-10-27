@@ -173,8 +173,8 @@ typedef IHookChain<bool, uint64, const char *, uint32> IRehldsHook_Steam_GSBUpda
 typedef IHookChainRegistry<bool, uint64, const char *, uint32> IRehldsHookRegistry_Steam_GSBUpdateUserData;
 
 //Cvar_DirectSet hook
-typedef IVoidHookChain<struct cvar_s *, const char *> IRehldsHook_Cvar_DirectSet;
-typedef IVoidHookChainRegistry<struct cvar_s *, const char *> IRehldsHookRegistry_Cvar_DirectSet;
+typedef IVoidHookChain<struct cvar_t *, const char *> IRehldsHook_Cvar_DirectSet;
+typedef IVoidHookChainRegistry<struct cvar_t *, const char *> IRehldsHookRegistry_Cvar_DirectSet;
 
 //SV_EstablishTimeBase hook
 typedef IVoidHookChain<IGameClient *, struct usercmd_s *, int, int, int> IRehldsHook_SV_EstablishTimeBase;
